@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'price', 'sub_category_id'];
+    protected $fillable = ['name', 'description', 'price', 'sub_category_id', 'image_path'];
 
-    public function subCategoria()
+    public function subCategory()
     {
-        return $this->belongsTo(Sub_Category::class);
+        return $this->belongsTo(SubCategory::class);
     }
 
     public function stock()

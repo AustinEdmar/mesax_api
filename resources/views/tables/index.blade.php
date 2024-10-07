@@ -2,17 +2,23 @@
 
 @section('content')
     <div class="container">
-        <h1>Mesas</h1>
-        <a href="{{ route('tables.create') }}" class="btn btn-primary mb-3">Adicionar Nova Mesa</a>
+        <h1 class="my-4 text-center">Mesas</h1>
 
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+        <div class="d-flex justify-content-between mb-3">
+            <a href="{{ route('tables.create') }}" class="btn btn-primary">Adicionar Nova Mesa</a>
 
-        <table class="table">
-            <thead>
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
                 <tr>
                     <th>#</th>
                     <th>Número</th>
@@ -25,19 +31,30 @@
                     <tr>
                         <td>{{ $table->id }}</td>
                         <td>{{ $table->number }}</td>
-                        <td>{{ $table->status }}</td>
                         <td>
-                            <a href="{{ route('tables.show', $table->id) }}" class="btn btn-info">Ver</a>
-                            <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-warning">Editar</a>
+                            <span class=" text-black
+                                {{ $table->status == 'Disponível' ? 'badge-success' : 'badge-danger' }}">
+                                {{ $table->status }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="{{ route('tables.show', $table->id) }}" class="btn btn-info btn-sm">Ver</a>
+                            <a href="{{ route('tables.edit', $table->id) }}" class="btn btn-warning btn-sm">Editar</a>
                             <form action="{{ route('tables.destroy', $table->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza?')">Excluir</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza?')">Excluir</button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        @if ($tables->isEmpty())
+            <div class="alert alert-warning text-center">
+                Nenhuma mesa encontrada.
+            </div>
+        @endif
     </div>
 @endsection
