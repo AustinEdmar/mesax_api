@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\TypeCategoryController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,9 +32,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('category', CategoryController::class);
 
-    Route::resource('subcategories', SubCategoryController::class);
+    Route::resource('sub_categories', SubCategoryController::class);
+    
+    Route::resource('type_categories', TypeCategoryController::class);
 
     Route::resource('products', ProductController::class);
 
 Route::resource('stocks', StockController::class);
+
+
 });

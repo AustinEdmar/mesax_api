@@ -6,7 +6,7 @@
 
         <form action="{{ route('category.store') }}" method="POST">
             @csrf
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label for="number">categoria</label>
                 <input type="text" name="name" class="form-control @error('number') is-invalid @enderror" value="{{ old('number') }}" required>
                 @error('name')

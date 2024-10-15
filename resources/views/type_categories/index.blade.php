@@ -3,8 +3,8 @@
 @section('content')
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center">
-        <h1>Lista de Categorias</h1>
-        <a href="{{ route('category.create') }}" class="btn btn-primary">Adicionar Categoria</a>
+        <h1>Lista de Tipos de Categoria</h1>
+        <a href="{{ route('type_categories.create') }}" class="btn btn-primary">Adicionar Tipo de Categoria</a>
     </div>
 
     @if (session('success'))
@@ -22,13 +22,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($categories as $category)
+            @foreach($typeCategories as $typeCategory)
             <tr>
-                <td>{{ $category->id }}</td>
-                <td>{{ $category->name }}</td>
+                <td>{{ $typeCategory->id }}</td>
+                <td>{{ $typeCategory->name }}</td>
                 <td>
-                    <a href="{{ route('category.edit', $category) }}" class="btn btn-warning btn-sm">Editar</a>
-                    <form action="{{ route('category.destroy', $category) }}" method="POST" class="d-inline">
+                    <a href="{{ route('type_categories.edit', $typeCategory) }}" class="btn btn-warning btn-sm">Editar</a>
+                    <form action="{{ route('type_categories.destroy', $typeCategory) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Excluir</button>

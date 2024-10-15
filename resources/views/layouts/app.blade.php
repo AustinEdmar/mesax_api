@@ -29,9 +29,26 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
+                    <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('products.index') }}">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tables.index') }}">Mesa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('stocks.index') }}">Stock</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category.index') }}">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('sub_categories.index') }}">Subcategorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('type_categories.index') }}">Tipos de Categorias</a>
+                    </li>
+                </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -69,6 +86,7 @@
                         @endguest
                     </ul>
                 </div>
+                
             </div>
         </nav>
 
@@ -80,13 +98,7 @@
 </body>
 
 <script >
-    document.getElementById('price').addEventListener('input', function (e) {
-    let value = e.target.value.replace(/[^\d]/g, ''); // Remove tudo que não é número
-    if (value.length > 0) {
-        value = (parseFloat(value) / 100).toFixed(2); // Converte para formato de moeda
-        e.target.value = value.replace('.', ','); // Substitui o ponto por vírgula
-    }
-});
+  
 
 </script>
 </html>
