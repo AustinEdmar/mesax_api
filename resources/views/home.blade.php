@@ -15,10 +15,10 @@
     <div class="row">
         <div class="col-md-4">
             <div class="card text-white bg-primary mb-4">
-                <div class="card-header">Bem-vindo ao Dashboard</div>
+                <div class="card-header">Gestao de produtos no Stock</div>
                 <div class="card-body">
                 <h5 class="card-title">{{ $totalStocks ?? 0 }}</h5>
-                <p class="card-text">Total de produtos no Stock.</p>
+                <p class="card-text">Gestao de produtos no Stock.</p>
                     <a href="{{ route('stocks.index') }}" class="btn btn-light">Gerenciar Estoques</a>
                 </div>
             </div>
@@ -26,7 +26,7 @@
         
         <div class="col-md-4">
             <div class="card text-white bg-success mb-4">
-                <div class="card-header">Total de Produtos</div>
+                <div class="card-header">Gestao de Produtos</div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $totalProducts ?? 0 }}</h5>
                     <p class="card-text">Total de produtos cadastrados no sistema.</p>
@@ -37,7 +37,7 @@
 
         <div class="col-md-4">
             <div class="card text-white bg-danger mb-4">
-                <div class="card-header">Total de Mesas</div>
+                <div class="card-header">Gestao de Pratos</div>
                 <div class="card-body">
                     <h5 class="card-title">{{ $totalTables ?? 0 }}</h5>
                     <p class="card-text">Total de mesas cadastradas no sistema.</p>
@@ -45,6 +45,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 @endsection

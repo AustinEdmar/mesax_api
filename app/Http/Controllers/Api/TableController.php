@@ -34,7 +34,7 @@ class TableController extends Controller
     public function update(Request $request, Tables $table)
     {
         $request->validate([
-            'numero' => 'required|unique:mesas,numero,' . $table->id,
+            'number' => 'required|unique:tables,number,' . $table->id,
             'status' => 'required|in:available,reserved,busy',
         ]);
     
